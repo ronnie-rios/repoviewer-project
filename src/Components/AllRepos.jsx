@@ -2,6 +2,7 @@ import { useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
 import Loading from '../UI/Loading';
 import { AiOutlineCalendar, AiFillCode, AiOutlineFork, AiOutlineGithub, AiOutlineStar } from 'react-icons/ai';
+
 const URL = process.env.REACT_APP_URL;
 const TOKEN = process.env.REACT_APP_TOKEN;
 
@@ -46,7 +47,7 @@ const AllRepos = () => {
                             </div>
                         </div>
                         <h3><AiOutlineCalendar />Created at: {date.toLocaleDateString()}</h3>
-                        <button onClick={()=>navigate('/:params')}>View Commits on this Repo</button>
+                        <button onClick={()=>navigate(`${item.name}`)}>View Commits on this Repo</button>
                     </div>
                 )
             })}

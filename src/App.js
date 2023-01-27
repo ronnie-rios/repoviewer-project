@@ -9,7 +9,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/:param' element={<RepoCommitPage />} />
+          <Route path='/:name' element={<RepoCommitPage />} />
         </Routes>
       </Router>
   );
