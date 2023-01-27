@@ -6,11 +6,13 @@ import RepoCommitPage from './Pages/RepoCommitPage';
 function App() {
   return (
       <Router>
-        <Navbar />
+        <Navbar className='bg-teal'/>
+        <main className='bg-dark-blue flex items-center justify-center '>  
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/:name' element={<RepoCommitPage />} />
         </Routes>
+        </main>
       </Router>
   );
 }

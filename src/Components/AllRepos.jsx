@@ -34,7 +34,7 @@ const AllRepos = () => {
             {repoData.map((item) => {
                 const date = new Date(item.created_at)
                 return (
-                    <div className='max-w-md p-6 m-6 border border-gray-800 rounded-lg shadow'key={item.id}> 
+                    <div className='max-w-2xl sm:max-w-md p-6 m-6 border bg-beige border-gray-800 rounded-lg shadow'key={item.id}> 
                         <h1 className='mb-2 text-2xl font-bold tracking-tight'><AiOutlineGithub/>Repo: {item.name.toUpperCase()}</h1>
                         <p >Description: {item.description}</p>
                         <div>

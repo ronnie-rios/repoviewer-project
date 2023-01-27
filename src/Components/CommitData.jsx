@@ -29,7 +29,7 @@ const CommitData = () => {
                 const date = new Date(item.commit.author.date)
 
                 return (
-                    <div className='max-w-md p-6 m-6 border border-gray-800 rounded-lg shadow'>
+                    <div className='max-w-md p-6 m-6 border bg-beige border-gray-800 rounded-lg shadow'>
                         <h3>Date: {date.toLocaleDateString()}</h3>
                         <p>Commit Messages: </p>
                         <p>{item.commit.message}</p>
