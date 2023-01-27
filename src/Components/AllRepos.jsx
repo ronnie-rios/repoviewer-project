@@ -28,18 +28,18 @@ const AllRepos = () => {
             const date = new Date(item.created_at)
             return (
                 <div className='max-w-md p-6 m-6 border border-gray-800 rounded-lg shadow'key={item.id}> 
-                    <h3> {item.name.toUpperCase()}</h3>
+                    <h1 className='mb-2 text-2xl font-bold tracking-tight'>Repo: {item.name.toUpperCase()}</h1>
                     <p >Description: </p>
                     <div>
                         <div>
                             <h3>{item.language}</h3>
 
-                            <h3>stars{item.stargazers_count}</h3>
+                            <h3>{item.stargazers_count} Stars</h3>
                         
-                            <h3>forks{item.forks}</h3>
+                            <h3>{item.forks} Forks</h3>
                         </div>
                     </div>
-                    <h3>{date.toLocaleDateString()}</h3>
+                    <h3>Created at: {date.toLocaleDateString()}</h3>
                 </div>
             )
         })}
