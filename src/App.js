@@ -1,6 +1,7 @@
 import HomePage from './Pages/HomePage';
 import Navbar from './UI/Navbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import RepoCommitPage from './Pages/RepoCommitPage';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
+          <Route path='/:param' element={<RepoCommitPage />} />
         </Routes>
       </Router>
   );
