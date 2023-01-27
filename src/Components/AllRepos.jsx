@@ -33,7 +33,7 @@ const AllRepos = () => {
                 return (
                     <div className='max-w-md p-6 m-6 border border-gray-800 rounded-lg shadow'key={item.id}> 
                         <h1 className='mb-2 text-2xl font-bold tracking-tight'>Repo: {item.name.toUpperCase()}</h1>
-                        <p >Description: </p>
+                        <p >Description: {item.description}</p>
                         <div>
                             <div>
                                 <h3>{item.language}</h3>
