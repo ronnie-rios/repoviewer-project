@@ -17,12 +17,33 @@ const AllRepos = () => {
         setRepoData(data);
         setLoading(false)
     };
-    console.log(repoData);
+   
     useEffect(() => {
         getData()
-    }, [])
+    }, []);
+    
   return (
-    <div>AllRepos</div>
+    <div>
+        {repoData.map((item) => {
+            const date = new Date(item.created_at)
+            return (
+                <div key={item.id}> 
+                    <h3> {item.name.toUpperCase()}</h3>
+                    <p >Description: </p>
+                    <div>
+                        <div>
+                            <h3>{item.language}</h3>
+
+                            <h3>stars{item.stargazers_count}</h3>
+                        
+                            <h3>forks{item.forks}</h3>
+                        </div>
+                    </div>
+                    <h3>{date.toLocaleDateString()}</h3>
+                </div>
+            )
+        })}
+    </div>
   )
 }
 
