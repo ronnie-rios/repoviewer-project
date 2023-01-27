@@ -15,7 +15,7 @@ const CommitData = () => {
             }
         });
         const data = await response.json();
-        console.log(data);
+        setCommitData(data);
     };
 
     useEffect(()=> {
@@ -23,7 +23,19 @@ const CommitData = () => {
     }, []);
 
     return (
-        <div>CommitData</div>
+        <div>
+            <h2>Commits for {name.toUpperCase()}</h2>
+            {commitData.map((item) => {
+                return (
+                    <div className='max-w-md p-6 m-6 border border-gray-800 rounded-lg shadow'>
+                        <p>Commit Message: {item.commit.message}</p>
+                        <div>
+                            add required data
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
     )
 }
 
