@@ -1,8 +1,11 @@
 import React from 'react'
+import CommitData from '../Components/CommitData'
 
 const RepoCommitPage = () => {
   return (
-    <div>RepoCommitPage</div>
+    <div>
+        <CommitData />
+    </div>
   )
 }
 
