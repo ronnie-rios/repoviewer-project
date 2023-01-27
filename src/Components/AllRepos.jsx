@@ -17,7 +17,7 @@ const AllRepos = () => {
         setRepoData(data);
         setLoading(false)
     };
-   
+   //TODO: sort data by star count
     useEffect(() => {
         getData()
     }, []);
@@ -27,7 +27,7 @@ const AllRepos = () => {
         {repoData.map((item) => {
             const date = new Date(item.created_at)
             return (
-                <div key={item.id}> 
+                <div className='max-w-md p-6 m-6 border border-gray-800 rounded-lg shadow'key={item.id}> 
                     <h3> {item.name.toUpperCase()}</h3>
                     <p >Description: </p>
                     <div>
