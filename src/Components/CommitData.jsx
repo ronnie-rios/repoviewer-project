@@ -7,8 +7,8 @@ const TOKEN = process.env.REACT_APP_TOKEN;
 const CommitData = () => {
     const [commitData, setCommitData] = useState([]);
     const name = useParams().name;
+
     const getCommitData = async () => {
-        //hit endpoint that pulls commits
         const response = await fetch(URL + name + '/commits',  {
             headers: {
                 'Authorization': TOKEN
@@ -25,12 +25,21 @@ const CommitData = () => {
     return (
         <div>
             <h2>Commits for {name.toUpperCase()}</h2>
-            {commitData.map((item) => {
+            {commitData && commitData.map((item) => {
+                const date = new Date(item.commit.author.date)
+
                 return (
                     <div className='max-w-md p-6 m-6 border border-gray-800 rounded-lg shadow'>
-                        <p>Commit Message: {item.commit.message}</p>
+                        <h3>Date: {date.toLocaleDateString()}</h3>
+                        <p>Commit Messages: </p>
+                        <p>{item.commit.message}</p>
                         <div>
-                            add required data
+                            <div className='pt-2'>
+                                <h3>Author: {item.committer === null ? item.commit.author.name: item.committer.login }</h3>
+                            </div>
+                            <div className='pt-2'>
+                                <h3>Commit Hash: {item.sha}</h3>
+                            </div>
                         </div>
                     </div>
                 )
