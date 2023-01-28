@@ -3,9 +3,9 @@ import AllRepos from '../Components/AllRepos'
 
 const HomePage = () => {
   return (
-    <div>
+    
         <AllRepos />
-    </div>
+    
   )
 }
 

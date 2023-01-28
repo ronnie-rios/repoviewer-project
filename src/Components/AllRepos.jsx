@@ -30,28 +30,26 @@ const AllRepos = () => {
         return <Loading />
     } else {
     return (
-        <div>
+        <ul>
             {repoData.map((item) => {
                 const date = new Date(item.created_at)
                 return (
-                    <div className='max-w-2xl sm:max-w-md p-6 m-6 border bg-beige border-gray-800 rounded-lg shadow'key={item.id}> 
-                        <h1 className='mb-2 text-2xl font-bold tracking-tight'><AiOutlineGithub/>Repo: {item.name.toUpperCase()}</h1>
-                        <p >Description: {item.description}</p>
-                        <div>
-                            <div>
-                                <AiFillCode/> <h3>{item.language}</h3>
-
-                                <AiOutlineStar/> <h3>{item.stargazers_count} Stars</h3>
-                            
-                                <AiOutlineFork /><h3>{item.forks} Forks</h3>
-                            </div>
+                    <li> 
+                    <div className='mx-auto w-9/12 p-4  border-t-4  border-white w'key={item.id}>
+                        <h3 className='text-white my-4'><AiOutlineCalendar />Created at: {date.toLocaleDateString()}</h3>
+                        <h1 className='text-blue mb-2 text-2xl font-bold tracking-tight '>Repo: {item.name.toUpperCase()}<AiOutlineGithub/></h1>
+                        <p className='text-white'> {item.description}</p>
+                        <div className='grid grid-cols-3 my-4'>
+                            <h3 className='text-white'><span><AiFillCode/></span> {item.language}</h3>
+                            <h3 className='text-white'><AiOutlineStar/> {item.stargazers_count} Stars</h3>
+                            <h3 className='text-white'><AiOutlineFork />{item.forks} Forks</h3>
                         </div>
-                        <h3><AiOutlineCalendar />Created at: {date.toLocaleDateString()}</h3>
-                        <button onClick={()=>navigate(`${item.name}`)}>View Commits on this Repo</button>
+                        <button className='bg-green text-black rounded p-2 hover:bg-white' onClick={()=>navigate(`${item.name}`)}>View Commits</button>
                     </div>
+                    </li>
                 )
-            })}
-        </div>
+            })}      
+        </ul>
         )
     }
 }
