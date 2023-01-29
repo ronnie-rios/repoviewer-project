@@ -24,20 +24,19 @@ const AllRepos = () => {
    //TODO: sort data by star count
     useEffect(() => {
         getData()
-    }, []);
+    }, [loading]);
 
     if (loading) {
         return <Loading />
     } else {
     return (
-        <ul>
+        <>
             {repoData.map((item) => {
                 const date = new Date(item.created_at)
-                return (
-                    
-                    <div className='mx-auto w-9/12 p-4 border-t-2 border-white'key={item.id}>
-                        <div className='grid grid-cols-4'>
-                            <h1 className='text-blue mb-2 text-2xl font-bold col-span-3'>Repository: {item.name.toUpperCase()}</h1>
+                return (    
+                    <div className='mx-auto w-8/12 py-4 px-6 border-t-2 border-white'key={item.id}>
+                        <div className='grid grid-cols-3'>
+                            <h1 className='text-blue mb-2 text-2xl font-bold col-span-2'>Repository: {item.name.toUpperCase()}</h1>
                             <button className='bg-green text-black font-semibold rounded p-2 hover:bg-white col-start-4' onClick={()=>navigate(`${item.name}`)}>View Commits</button>
                         </div>
                         <p className='text-white text-lg mt-2'> {item.description}</p>
@@ -45,13 +44,13 @@ const AllRepos = () => {
                             <h3 className='text-white'><span><AiFillCode/></span> {item.language}</h3>
                             <h3 className='text-white'><AiOutlineStar/> {item.stargazers_count} Stars</h3>
                             <h3 className='text-white'><AiOutlineFork />{item.forks} Forks</h3>
-                            <h3 className='text-white text-base my-4'>Created {date.toLocaleDateString()}</h3>
+                            <h3 className='text-white text-base my-4 content-end'>Created {date.toLocaleDateString()}</h3>
                         </div>
                     </div>
                     
-                )
-            })}      
-        </ul>
+                    )
+                })}      
+        </>
         )
     }
 }
