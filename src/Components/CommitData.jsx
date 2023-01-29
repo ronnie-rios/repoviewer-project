@@ -11,7 +11,7 @@ const CommitData = () => {
     const [loading, setLoading] = useState(true);
     const repoName = useParams().name;
     const { nameSearch } = useSearch();
-
+    
     const getCommitData = async () => {
         const response = await fetch(URL + nameSearch.name + '/' + repoName + '/commits',  {
             headers: {
@@ -28,7 +28,7 @@ const CommitData = () => {
     }, [loading]);
 
     if(loading) {
-        return <Loading />
+        return <Loading className='bg-black h-full'/>
     } else {
     return (
         <section>
@@ -46,7 +46,7 @@ const CommitData = () => {
                             <dd className='text-white text-lg font-semibold'>{item.commit.message}</dd>
                             <dt className='mb-1 text-gray'>Author</dt>
                             <dd className='text-white text-lg font-semibold'> {item.committer === null ? item.commit.author.name: item.committer.login }</dd>
-                            <dt className='mb-1 text-gray'>Commit hash</dt>
+                            <dt className='mb-1 text-gray'>Commit Hash</dt>
                             <dd className='text-white text-lg font-semibold'> {item.sha}</dd>
                         </div>
                     )

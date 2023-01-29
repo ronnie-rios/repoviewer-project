@@ -10,7 +10,7 @@ function App() {
     <SearchProvider>
       <Router>
         <Navbar />
-        <main className='bg-black h-full max-auto p-10'>  
+        <main className='bg-black h-screen max-auto p-10'>  
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/:name' element={<RepoCommitPage />} />

@@ -26,7 +26,7 @@ const SearchForm = () => {
 
     return (
     <div>
-        <form onChange={formHandler} onSubmit={formSubmit}> 
+        <form onSubmit={formSubmit}> 
             <div className='my-2'>
                 <label className='text-white'>Search below:</label>
             </div>
@@ -37,6 +37,7 @@ const SearchForm = () => {
                     className='bg-black rounded p-1 text-white border border-gray focus:outline-none  focus:border-blue px-2' type="text" 
                     name='name' 
                     value={formData.name}
+                    onChange={formHandler}
                 />
             </div>
             <div className='mt-2'>
