@@ -1,7 +1,7 @@
 import Loading from '../UI/Loading';
+import { AiFillCode, AiOutlineFork, AiOutlineStar } from 'react-icons/ai';
 import { useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
-import { AiFillCode, AiOutlineFork, AiOutlineStar } from 'react-icons/ai';
 import { useSearch } from '../store/searchContext';
 
 const URL = process.env.REACT_APP_URL;
@@ -12,7 +12,7 @@ const AllRepos = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const { nameSearch } = useSearch();
-    console.log(nameSearch)
+   
     const getData = async () => {
         const response = await fetch(URL + nameSearch.name + '/repos', {
             headers: {

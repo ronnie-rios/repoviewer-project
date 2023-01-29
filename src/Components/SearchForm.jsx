@@ -27,9 +27,19 @@ const SearchForm = () => {
     return (
     <div>
         <form onChange={formHandler} onSubmit={formSubmit}> 
-            <label className='text-white'>Search for an organization</label>
-            <input type="text" name='name' value={formData.name}/>
-            <button className='bg-gray p-2 rounded'>Submit</button>
+            <div className='my-2'>
+                <label className='text-white'>Search below:</label>
+            </div>
+            <div className='my-2'>
+                <input 
+                    className='bg-black rounded text-white border border-gray focus:outline-none  focus:border-blue px-2' type="text" 
+                    name='name' 
+                    value={formData.name}
+                />
+            </div>
+            <div className='mt-2'>
+                <button className='bg-btn-gray border border-btn-gray hover:border-white p-2 rounded'>Search</button>
+            </div>
         </form>
     </div>
     )
