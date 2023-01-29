@@ -1,7 +1,8 @@
+import Loading from '../UI/Loading';
 import { useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
-import Loading from '../UI/Loading';
 import { AiFillCode, AiOutlineFork, AiOutlineStar } from 'react-icons/ai';
+import { useSearch } from '../store/searchContext';
 
 const URL = process.env.REACT_APP_URL;
 const TOKEN = process.env.REACT_APP_TOKEN;
@@ -10,9 +11,10 @@ const AllRepos = () => {
     const [repoData, setRepoData] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-
+    const { nameSearch } = useSearch();
+    console.log(nameSearch)
     const getData = async () => {
-        const response = await fetch(URL, {
+        const response = await fetch(URL + nameSearch.name + '/repos', {
             headers: {
                 'Authorization': TOKEN
             }
@@ -25,7 +27,7 @@ const AllRepos = () => {
 
     useEffect(() => {
         getData()
-    }, [loading]);
+    }, [loading, nameSearch]);
 
     if (loading) {
         return <Loading />
