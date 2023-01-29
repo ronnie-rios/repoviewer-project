@@ -7,10 +7,12 @@ function App() {
   return (
       <Router>
         <Navbar />
+        <main className='bg-black  max-auto p-10'>  
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/:name' element={<RepoCommitPage />} />
         </Routes>
+        </main>
       </Router>
   );
 }

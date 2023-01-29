@@ -1,7 +1,7 @@
 import { useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
 import Loading from '../UI/Loading';
-import { AiOutlineCalendar, AiFillCode, AiOutlineFork, AiOutlineGithub, AiOutlineStar } from 'react-icons/ai';
+import { AiFillCode, AiOutlineFork, AiOutlineStar } from 'react-icons/ai';
 
 const URL = process.env.REACT_APP_URL;
 const TOKEN = process.env.REACT_APP_TOKEN;
@@ -24,34 +24,32 @@ const AllRepos = () => {
    //TODO: sort data by star count
     useEffect(() => {
         getData()
-    }, []);
+    }, [loading]);
 
     if (loading) {
         return <Loading />
     } else {
     return (
-        <div>
+        <section className='col-start-2 lg:col-span-3 md:col-span-2 sm:col-span-1'>
             {repoData.map((item) => {
                 const date = new Date(item.created_at)
-                return (
-                    <div className='max-w-md p-6 m-6 border border-gray-800 rounded-lg shadow'key={item.id}> 
-                        <h1 className='mb-2 text-2xl font-bold tracking-tight'><AiOutlineGithub/>Repo: {item.name.toUpperCase()}</h1>
-                        <p >Description: {item.description}</p>
-                        <div>
-                            <div>
-                                <AiFillCode/> <h3>{item.language}</h3>
-
-                                <AiOutlineStar/> <h3>{item.stargazers_count} Stars</h3>
-                            
-                                <AiOutlineFork /><h3>{item.forks} Forks</h3>
-                            </div>
+                return (    
+                    <div className=' py-4 px-6 border-t-2 border-white'key={item.id}>
+                        <div className='grid grid-cols-3'>
+                            <h1 className='text-blue mb-2 text-2xl font-bold col-span-2'>Repository: {item.name.toUpperCase()}</h1>
+                            <button className='bg-green text-btn-text font-semibold rounded p-2 hover:bg-white col-start-4' onClick={()=>navigate(`${item.name}`)}>View Commits</button>
                         </div>
-                        <h3><AiOutlineCalendar />Created at: {date.toLocaleDateString()}</h3>
-                        <button onClick={()=>navigate(`${item.name}`)}>View Commits on this Repo</button>
-                    </div>
-                )
-            })}
-        </div>
+                        <p className='text-white text-lg mt-2'> {item.description}</p>
+                        <div className='grid grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 mt-4'>
+                            <h3 className='text-white'><span><AiFillCode/></span> {item.language}</h3>
+                            <h3 className='text-white'><AiOutlineStar/> {item.stargazers_count} Stars</h3>
+                            <h3 className='text-white'><AiOutlineFork />{item.forks} Forks</h3>
+                            <h3 className='text-white text-base my-4 content-end'>Created {date.toLocaleDateString()}</h3>
+                        </div>
+                    </div>              
+                    )
+                })}      
+        </section>
         )
     }
 }
