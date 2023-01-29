@@ -30,7 +30,7 @@ const AllRepos = () => {
         return <Loading />
     } else {
     return (
-        <section className='col-start-2 col-span-3'>
+        <section className='col-start-2 lg:col-span-3 md:col-span-2 sm:col-span-1'>
             {repoData.map((item) => {
                 const date = new Date(item.created_at)
                 return (    
@@ -40,7 +40,7 @@ const AllRepos = () => {
                             <button className='bg-green text-btn-text font-semibold rounded p-2 hover:bg-white col-start-4' onClick={()=>navigate(`${item.name}`)}>View Commits</button>
                         </div>
                         <p className='text-white text-lg mt-2'> {item.description}</p>
-                        <div className='grid grid-cols-4 mt-4'>
+                        <div className='grid grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 mt-4'>
                             <h3 className='text-white'><span><AiFillCode/></span> {item.language}</h3>
                             <h3 className='text-white'><AiOutlineStar/> {item.stargazers_count} Stars</h3>
                             <h3 className='text-white'><AiOutlineFork />{item.forks} Forks</h3>
