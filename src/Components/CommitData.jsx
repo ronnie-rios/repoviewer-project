@@ -23,28 +23,29 @@ const CommitData = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Commits for {name.toUpperCase()}</h2>
-            {commitData && commitData.map((item) => {
-                const date = new Date(item.commit.author.date)
-                return (
-                    <div className='max-w-md p-6 m-6 border bg-beige border-gray-800 rounded-lg shadow' key={item.sha}>
-                        <h3>Date: {date.toLocaleDateString()}</h3>
-                        <p>Commit Messages: </p>
-                        <p>{item.commit.message}</p>
-                        <div>
-                            <div className='pt-2'>
-                                <h3>Author: {item.committer === null ? item.commit.author.name: item.committer.login }</h3>
-                            </div>
-                            <div className='pt-2'>
-                                <h3>Commit Hash: {item.sha}</h3>
-                            </div>
+        <section>
+            <div className='border-b-4 border-gray my-3 py-3'>
+                <h1 className='text-2xl text-white'>Commits for {name.toUpperCase()}</h1>
+            </div>
+            <dl className='max-w-lg text-white divide-y divide-gray'>
+                {commitData && commitData.map((item) => {
+                    const date = new Date(item.commit.author.date)
+                    return (
+                        <div className='flex flex-col pb-3' key={item.sha}>
+                            <dt className='mb-1 text-gray'>Created</dt>
+                            <dd className='text-white text-lg font-semibold'>{date.toLocaleDateString()}</dd>
+                            <dt className='mb-1 text-gray'>Commit</dt>
+                            <dd className='text-white text-lg font-semibold'>{item.commit.message}</dd>
+                            <dt className='mb-1 text-gray'>Author</dt>
+                            <dd className='text-white text-lg font-semibold'> {item.committer === null ? item.commit.author.name: item.committer.login }</dd>
+                            <dt className='mb-1 text-gray'>Commit hash</dt>
+                            <dd className='text-white text-lg font-semibold'> {item.sha}</dd>
                         </div>
-                    </div>
-                )
-            })}
-        </div>
+                    )
+                })}
+            </dl>
+        </section>
     )
 }
 
-export default CommitData
+export default CommitData;
