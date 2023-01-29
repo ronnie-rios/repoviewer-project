@@ -11,7 +11,8 @@ module.exports = {
         'white': '#C1D1D9',
         'gray':'#8B9493',
         'green': '#238636',
-        'nav-color': '#161B22'
+        'nav-color': '#161B22',
+        'btn-text': '#FFFFFF'
       }
     },
   },
