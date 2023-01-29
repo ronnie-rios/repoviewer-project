@@ -3,6 +3,7 @@ import Navbar from './UI/Navbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RepoCommitPage from './Pages/RepoCommitPage';
 import { SearchProvider } from './store/searchContext';
+import Footer from './UI/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/:name' element={<RepoCommitPage />} />
         </Routes>
+        <Footer />
         </main>
       </Router>
     </SearchProvider>
