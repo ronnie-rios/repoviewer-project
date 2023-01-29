@@ -17,11 +17,12 @@ const AllRepos = () => {
                 'Authorization': TOKEN
             }
         });
-        const data = await response.json();
-        setRepoData(data);
+        const data = await response.json(); 
+        const starCount = data.sort((a,b) =>  {return b.stargazers_count - a.stargazers_count })
+        setRepoData(starCount);
         setLoading(false);
     };
-   //TODO: sort data by star count
+
     useEffect(() => {
         getData()
     }, [loading]);

@@ -7,8 +7,7 @@ const HomePage = () => {
         <img src={logo} alt="Netflix Logo" className='h-40 w-40'/>
         <h1 className='text-white text-2xl py-3'>Netflix Repos</h1>
         <p className='text-white text-base py-3'>View different repositories built and utilized by Netflix.</p>
-        <button className='bg-btn-gray text-btn-text rounded p-4 m-3 border border-btn-gray hover:border-white'>Sort by star count</button>
-        <button className='bg-btn-gray text-btn-text rounded p-4 m-3 border border-btn-gray hover:border-white'>Sort by fork count</button>
+       
       </div>
         <AllRepos />
     </div>
