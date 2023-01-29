@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { useSearch } from '../store/searchContext';
 
 const URL = process.env.REACT_APP_SINGLE_URL;
 const TOKEN = process.env.REACT_APP_TOKEN;
 
 const CommitData = () => {
     const [commitData, setCommitData] = useState([]);
-    const name = useParams().name;
+    const repoName = useParams().name;
+    const { nameSearch } = useSearch();
 
     const getCommitData = async () => {
-        const response = await fetch(URL + name + '/commits',  {
+        const response = await fetch(URL + nameSearch.name + '/' + repoName + '/commits',  {
             headers: {
                 'Authorization': TOKEN
             }
@@ -25,7 +27,7 @@ const CommitData = () => {
     return (
         <section>
             <div className='border-b-4 border-gray my-3 py-3'>
-                <h1 className='text-2xl text-white'>Commits for {name.toUpperCase()}</h1>
+                <h1 className='text-2xl text-white'>Commits for {repoName.toUpperCase()}</h1>
             </div>
             <dl className='max-w-lg text-white divide-y divide-gray'>
                 {commitData && commitData.map((item) => {
