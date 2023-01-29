@@ -1,3 +1,4 @@
+import Loading from '../UI/Loading';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useSearch } from '../store/searchContext';
@@ -7,6 +8,7 @@ const TOKEN = process.env.REACT_APP_TOKEN;
 
 const CommitData = () => {
     const [commitData, setCommitData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const repoName = useParams().name;
     const { nameSearch } = useSearch();
 
@@ -18,12 +20,16 @@ const CommitData = () => {
         });
         const data = await response.json();
         setCommitData(data);
+        setLoading(false);
     };
 
     useEffect(()=> {
         getCommitData();
-    }, []);
+    }, [loading]);
 
+    if(loading) {
+        return <Loading />
+    } else {
     return (
         <section>
             <div className='border-b-4 border-gray my-3 py-3'>
@@ -48,6 +54,6 @@ const CommitData = () => {
             </dl>
         </section>
     )
+    }
 }
-
 export default CommitData;

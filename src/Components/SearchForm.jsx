@@ -32,7 +32,9 @@ const SearchForm = () => {
             </div>
             <div className='my-2'>
                 <input 
-                    className='bg-black rounded text-white border border-gray focus:outline-none  focus:border-blue px-2' type="text" 
+                    placeholder='ex: google'
+                    required
+                    className='bg-black rounded p-1 text-white border border-gray focus:outline-none  focus:border-blue px-2' type="text" 
                     name='name' 
                     value={formData.name}
                 />

@@ -3,6 +3,7 @@ import { AiFillCode, AiOutlineFork, AiOutlineStar } from 'react-icons/ai';
 import { useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
 import { useSearch } from '../store/searchContext';
+import ErrorHandler from '../UI/ErrorHandler';
 
 const URL = process.env.REACT_APP_URL;
 const TOKEN = process.env.REACT_APP_TOKEN;
@@ -10,6 +11,7 @@ const TOKEN = process.env.REACT_APP_TOKEN;
 const AllRepos = () => {
     const [repoData, setRepoData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [errorData, setErrorData] = useState(false);
     const navigate = useNavigate();
     const { nameSearch } = useSearch();
    
@@ -19,18 +21,24 @@ const AllRepos = () => {
                 'Authorization': TOKEN
             }
         });
-        const data = await response.json(); 
-        const starCount = data.sort((a,b) =>  {return b.stargazers_count - a.stargazers_count })
-        setRepoData(starCount);
-        setLoading(false);
+        
+        if (response.status === 200) {     
+            const data = await response.json(); 
+            const starCount = data.sort((a,b) =>  {return b.stargazers_count - a.stargazers_count })
+            setRepoData(starCount);
+            setLoading(false);
+            setErrorData(false);
+        } else {
+            setErrorData(true);
+        }
     };
 
     useEffect(() => {
         getData()
     }, [loading, nameSearch]);
 
-    if (loading) {
-        return <Loading />
+    if (errorData) {
+        return <ErrorHandler />
     } else {
     return (
         <section className='col-start-2 lg:col-span-3 md:col-span-2 sm:col-span-1'>
