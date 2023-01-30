@@ -41,17 +41,17 @@ const AllRepos = () => {
         return <ErrorHandler />
     } else {
     return (
-        <section className='col-start-2 lg:col-span-3 md:col-span-2 sm:col-span-1'>
+        <section className='md:col-start-2 lg:col-span-3 md:col-span-3 col-span-1'>
             {repoData.map((item) => {
                 const date = new Date(item.created_at)
                 return (    
                     <div className=' py-4 px-6 border-t-2 border-white'key={item.id}>
-                        <div className='grid grid-cols-3'>
-                            <h1 className='text-blue mb-2 text-2xl font-bold col-span-2'>Repository: {item.name.toUpperCase()}</h1>
-                            <button className='bg-green text-btn-text font-semibold rounded p-2 hover:bg-white col-start-4' onClick={()=>navigate(`${item.name}`)}>View Commits</button>
+                        <div className='grid grid-cols-1 lg:grid-cols-3'>
+                            <h1 className='text-blue mb-2 text-2xl font-bold md:col-span-2'>Repository: {item.name.toUpperCase()}</h1>
+                            <button className='bg-green text-btn-text font-semibold rounded p-2 hover:bg-white md:col-start-4' onClick={()=>navigate(`${item.name}`)}>View Commits</button>
                         </div>
                         <p className='text-white text-lg mt-2'> {item.description}</p>
-                        <div className='grid grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 mt-4'>
+                        <div className='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 mt-4'>
                             <h3 className='text-white'><span><AiFillCode/></span> {item.language}</h3>
                             <h3 className='text-white'><AiOutlineStar/> {item.stargazers_count} Stars</h3>
                             <h3 className='text-white'><AiOutlineFork />{item.forks} Forks</h3>

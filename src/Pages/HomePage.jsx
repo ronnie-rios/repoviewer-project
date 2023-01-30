@@ -7,7 +7,7 @@ const HomePage = () => {
   const { nameSearch } = useSearch();
 
   return (
-    <div className='grid grid-cols-5 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-1 place-content-center gap-2'>
+    <div className='grid 2xl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-5 md:grid-cols-4 grid-cols-1 place-content-center gap-2 mx-2 lg:mx-10'>
       <div className='col-span-1 text-white m-2 '>
         <AiFillGithub className='h-40 w-40'/>
         <h1 className='text-white text-2xl py-3'>{nameSearch.name.toUpperCase()} Repos</h1>
