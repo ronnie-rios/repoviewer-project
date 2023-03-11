@@ -41,7 +41,7 @@ const SearchForm = () => {
                 />
             </div>
             <div className='mt-2'>
-                <button className='bg-btn-gray border border-btn-gray hover:border-white p-2 rounded'>Search</button>
+                <button className='bg-btn-gray border border-btn-gray hover:border-white p-2 rounded mt-4'>Search</button>
             </div>
         </form>
     </div>

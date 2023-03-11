@@ -28,10 +28,12 @@ const CommitData = () => {
     }, [loading]);
 
     if(loading) {
-        return <Loading className='bg-black h-full'/>
+        return <Loading />
     } else {
     return (
-        <section className='grid-cols-1 p-2'>
+        <div className='bg-black h-screen'>
+
+        <section className='grid-cols-1 py-4 px-20 mx-auto'>
             <div className='border-b-4 border-gray my-3 py-3'>
                 <h1 className='text-2xl text-white'>Commits for {repoName.toUpperCase()}</h1>
             </div>
@@ -53,6 +55,7 @@ const CommitData = () => {
                 })}
             </dl>
         </section>
+    </div>
     )
     }
 }

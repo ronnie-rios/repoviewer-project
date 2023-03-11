@@ -8,7 +8,7 @@ function SearchProvider({ children }) {
     const [nameSearch, setNameSearch] = useState({
         name: 'Netflix'
     });   
-
+     
     return (
         <SearchContext.Provider value = 
         {{

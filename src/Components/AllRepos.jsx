@@ -41,7 +41,7 @@ const AllRepos = () => {
         return <ErrorHandler />
     } else {
     return (
-        <section className='md:col-start-2 lg:col-span-3 md:col-span-3 col-span-1'>
+        <section className='md:col-start-2 lg:col-span-3 md:col-span-3 col-span-1 px-5'>
             {repoData.map((item) => {
                 const date = new Date(item.created_at)
                 return (    
