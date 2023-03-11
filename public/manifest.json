@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Repo Viewer",
+  "name": "View organization repositories that are public",
   "icons": [
     {
       "src": "favicon.ico",
