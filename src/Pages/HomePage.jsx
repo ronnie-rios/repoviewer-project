@@ -5,6 +5,7 @@ import { useSearch } from '../store/searchContext';
 
 const HomePage = () => {
   const { nameSearch } = useSearch();
+  console.log(nameSearch);
 
   return (
     <div className='grid 2xl:grid-cols-5 xl:grid-cols-5 lg:grid-cols-5 md:grid-cols-4 grid-cols-1 place-content-center gap-2 mx-2 lg:mx-10'>

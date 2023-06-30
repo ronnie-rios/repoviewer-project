@@ -9,9 +9,9 @@ const URL = process.env.REACT_APP_URL;
 const TOKEN = process.env.REACT_APP_TOKEN;
 
 const AllRepos = () => {
-    const [repoData, setRepoData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [errorData, setErrorData] = useState(false);
+    const [repoData, setRepoData] = useState([]); //returns an arr
+    const [loading, setLoading] = useState(true); //true , unless i switch to false
+    const [errorData, setErrorData] = useState(false); //false unless somethings goeswrong
     const navigate = useNavigate();
     const { nameSearch } = useSearch();
    

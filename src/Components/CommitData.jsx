@@ -31,13 +31,13 @@ const CommitData = () => {
         return <Loading />
     } else {
     return (
-        <div className='bg-black h-screen'>
+        <div className='bg-black '>
 
         <section className='grid-cols-1 py-4 px-20 mx-auto'>
             <div className='border-b-4 border-gray my-3 py-3'>
                 <h1 className='text-2xl text-white'>Commits for {repoName.toUpperCase()}</h1>
             </div>
-            <dl className='text-white divide-y divide-gray'>
+            <dl className='text-white divide-y divide-gray py-4'>
                 {commitData && commitData.map((item) => {
                     const date = new Date(item.commit.author.date)
                     return (

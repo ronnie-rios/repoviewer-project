@@ -10,8 +10,7 @@ function SearchProvider({ children }) {
     });   
      
     return (
-        <SearchContext.Provider value = 
-        {{
+        <SearchContext.Provider value ={{
             nameSearch: nameSearch,
             setNameSearch
         }}>
